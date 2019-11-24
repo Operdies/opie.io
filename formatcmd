@@ -1,0 +1,1 @@
+cat ./src/App.svelte|  prettier --plugin-search-dir=. --parser=svelte --stdin
