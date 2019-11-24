@@ -6,4 +6,4 @@
 
 </style>
 
-<img src=./images/kc-peeking.png/ alt='surprise'>
+<img src=./images/kc-peeking.png alt='surprise'>
