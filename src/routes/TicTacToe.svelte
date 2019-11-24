@@ -28,6 +28,7 @@
     function Reset() {
         board = getInitialBoard();
         winner = 0;
+        turn = 0;
     }
     function Winner(board) {
         let fixedboard = [
