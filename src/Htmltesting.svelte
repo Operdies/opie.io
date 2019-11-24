@@ -4,16 +4,6 @@
 </script>
 
 <style>
-    pre {
-        font-size: 2em;
-    }
-    p {
-        font-size: 2em;
-    }
-    h2 {
-        font-size: 2em;
-        color: red;
-    }
     textarea {
         /*         text-align: center; */
         width: 100ch;
@@ -28,8 +18,8 @@
         <h1>Raw html</h1>
         <textarea bind:value={raw_html} />
         <h1>Formatted html</h1>
-        <pre>
-            {@html raw_html}
-        </pre>
     </div>
+    <pre>
+        {@html raw_html}
+    </pre>
 </div>
