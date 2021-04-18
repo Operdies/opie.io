@@ -1,19 +1,15 @@
-<script>
-  import TicTacToe from "./Games/TicTacToe.svelte";
+<script>  
   import UnityGame from "./Games/UnityGame.svelte";
+  let game = "Roller"
 </script>
 
 <div>
-  <h1>Roll A Ball</h1>
-  <UnityGame game={"Roller"} />
-  <h1>Tic Tac Toe</h1>
-  <TicTacToe />
+  <h1>{game}</h1>
+  <UnityGame game={game} />
 </div>
 
 <style>
-    div > * {
-        text-align: center;
-        margin-top: 10%;
+    div > * {                
         text-align: center;
     }
     div {

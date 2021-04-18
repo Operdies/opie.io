@@ -92,12 +92,12 @@
   #unity-container {
     position: relative;
     display: inline-block;    
-    width: 1280px;
-    height: 720px;
+    width: 80vw;
+    height: 45vw;
   }
   #unity-canvas {
-    width: 1280px;
-    height: 720px;
+    width: 80vw;
+    height: 45vw;
   }
   #unity-container.unity-desktop {
     left: unset;
