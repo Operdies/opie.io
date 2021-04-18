@@ -8,14 +8,14 @@
   // We therefore need to run it in onMount so it runs in the client browser
   onMount(() => {
     var buildUrl = `${baseDir}/Build`;
-    var loaderUrl = buildUrl + "/WebGL.loader.js";
+    var loaderUrl = `${buildUrl}/${game}.loader.js`;
     var config = {
-      dataUrl: buildUrl + "/WebGL.data",
-      frameworkUrl: buildUrl + "/WebGL.framework.js",
-      codeUrl: buildUrl + "/WebGL.wasm",
+      dataUrl: `${buildUrl}/${game}.data`,
+      frameworkUrl: `${buildUrl}/${game}.framework.js`,
+      codeUrl: `${buildUrl}/${game}.wasm`,
       streamingAssetsUrl: "StreamingAssets",
-      companyName: "DefaultCompany",
-      productName: "Roller",
+      companyName: "Dong Inc.",
+      productName: game,
       productVersion: "0.1",
     };
 
@@ -93,11 +93,11 @@
     position: relative;
     display: inline-block;    
     width: 1280px;
-    height: 800px;
+    height: 720px;
   }
   #unity-canvas {
     width: 1280px;
-    height: 800px;
+    height: 720px;
   }
   #unity-container.unity-desktop {
     left: unset;
