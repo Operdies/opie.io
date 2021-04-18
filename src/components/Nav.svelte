@@ -52,7 +52,7 @@
     <ul>
         <li><a class:selected='{segment === undefined}' href='.'>home</a></li>
         <li><a class:selected='{segment === "Htmltesting"}' href='Htmltesting'>Test HTML</a></li>
-        <li><a class:selected='{segment === "TicTacToe"}' href='TicTacToe'>Play a game?</a></li>
+        <li><a class:selected='{segment === "Games"}' href='Games'>Play a game?</a></li>
         <li><a class:selected='{segment === "Secret"}' href='Secret'>Don't look</a></li>
     </ul>
 </nav>
