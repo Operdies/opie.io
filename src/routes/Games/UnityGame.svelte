@@ -1,6 +1,7 @@
 <script>
   export let game;
   let baseDir = `games/${game}`;
+
   import { onMount } from "svelte";
 
   // This project is using Sapper, and this sort of DOM manipulation is only available in the browser
@@ -41,9 +42,6 @@
       setTimeout(() => {
         mobileWarning.style.display = "none";
       }, 5000);
-    } else {
-      canvas.style.width = "960px";
-      canvas.style.height = "600px";
     }
     loadingBar.style.display = "block";
 
@@ -70,7 +68,7 @@
 <link rel="stylesheet" href="{baseDir}/TemplateData/style.css" />
 
 <div id="unity-container" class="unity-desktop">
-  <canvas id="unity-canvas" width="960" height="600" />
+  <canvas id="unity-canvas" />
   <div id="unity-loading-bar">
     <div id="unity-logo" />
     <div id="unity-progress-bar-empty">
@@ -88,15 +86,22 @@
 </div>
 
 <style>
-    /* Override styles defined by Unity
+  /* Override styles defined by Unity
     ** We want to control the layout in this component
      */
   #unity-container {
     position: relative;
+    display: inline-block;    
+    width: 1280px;
+    height: 800px;
+  }
+  #unity-canvas {
+    width: 1280px;
+    height: 800px;
   }
   #unity-container.unity-desktop {
-    left: 0%;
-    top: 0%;
-    transform: translate(0%, 0%);
+    left: unset;
+    top: unset;
+    transform: unset;
   }
 </style>

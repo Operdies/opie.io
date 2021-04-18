@@ -14,5 +14,9 @@
     div > * {
         text-align: center;
         margin-top: 10%;
+        text-align: center;
+    }
+    div {
+        text-align: center;
     }
 </style>
