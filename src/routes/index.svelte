@@ -1,11 +1,1 @@
-<script>
-
-</script>
-
-<style>
-
-</style>
-
-<div>
-    OwO
-</div>
+<img src=./images/bizarre.png alt='surprise'/>

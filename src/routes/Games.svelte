@@ -1,11 +1,11 @@
-<script>  
+<script>
   import UnityGame from "./Games/UnityGame.svelte";
-  let game = "Roller"
+  let Game = "Roller"  
 </script>
 
 <div>
-  <h1>{game}</h1>
-  <UnityGame game={game} />
+  <h1>{Game}</h1>
+  <UnityGame Game={Game} />
 </div>
 
 <style>

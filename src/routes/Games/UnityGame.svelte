@@ -1,30 +1,33 @@
 <script>
-  export let game;
-  let baseDir = `games/${game}`;
+  export let Game;
+  let baseDir = `games/${Game}`;
 
   import { onMount } from "svelte";
 
   // This project is using Sapper, and this sort of DOM manipulation is only available in the browser
   // We therefore need to run it in onMount so it runs in the client browser
-  onMount(() => {
-    var buildUrl = `${baseDir}/Build`;
-    var loaderUrl = `${buildUrl}/${game}.loader.js`;
-    var config = {
-      dataUrl: `${buildUrl}/${game}.data`,
-      frameworkUrl: `${buildUrl}/${game}.framework.js`,
-      codeUrl: `${buildUrl}/${game}.wasm`,
-      streamingAssetsUrl: "StreamingAssets",
-      companyName: "Dong Inc.",
-      productName: game,
-      productVersion: "0.1",
-    };
-
+  
+  onMount(() => {    
     var container = document.querySelector("#unity-container");
-    var canvas = document.querySelector("#unity-canvas");
+    var canvas = document.querySelector("#unity-canvas");    
     var loadingBar = document.querySelector("#unity-loading-bar");
     var progressBarFull = document.querySelector("#unity-progress-bar-full");
     var fullscreenButton = document.querySelector("#unity-fullscreen-button");
     var mobileWarning = document.querySelector("#unity-mobile-warning");
+
+    var buildUrl = `${baseDir}/Build`;
+    var loaderUrl = `${buildUrl}/${Game}.loader.js`;
+    var config = {
+      dataUrl: `${buildUrl}/${Game}.data`,
+      frameworkUrl: `${buildUrl}/${Game}.framework.js`,
+      codeUrl: `${buildUrl}/${Game}.wasm`,
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "Dong Inc.",
+      productName: Game,
+      productVersion: "0.1",
+      doNotCaptureKeyboard: true,
+      keyboardListeningElement: container
+    };
 
     // By default Unity keeps WebGL canvas render target size matched with
     // the DOM size of the canvas element (scaled by window.devicePixelRatio)
@@ -51,7 +54,7 @@
       createUnityInstance(canvas, config, (progress) => {
         progressBarFull.style.width = 100 * progress + "%";
       })
-        .then((unityInstance) => {
+        .then((unityInstance) => {          
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
@@ -61,7 +64,13 @@
           alert(message);
         });
     };
+
     document.body.appendChild(script);
+
+    // the canvas steals all keyboard input when navigating away from the page
+    // Functions returned from onMount are run on dismount, so this is where the 
+    // keyboard input should be reclaimed.
+    return () => { /* Reclaim keyboard input */ }    
   });
 </script>
 
@@ -81,7 +90,7 @@
   <div id="unity-footer">
     <div id="unity-webgl-logo" />
     <div id="unity-fullscreen-button" />
-    <div id="unity-build-title">{game}</div>
+    <div id="unity-build-title">{Game}</div>
   </div>
 </div>
 
